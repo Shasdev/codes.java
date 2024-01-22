@@ -1,0 +1,19 @@
+class Solution {
+    public void find(String k,int o,int c, List<String> arr,int n)
+    {
+        if(k.length()==2*n)
+        {
+            arr.add(k);
+            return;
+        }
+        if(o<n)
+            find(k+"(",o+1,c,arr,n);
+        if(c<o)
+            find(k+")",o,c+1,arr,n);
+    }
+    public List<String> generateParenthesis(int n) {
+        List<String> arr=new ArrayList<>();
+        find("",0,0,arr,n);
+        return arr;
+    }
+}
